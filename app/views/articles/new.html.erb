@@ -1,0 +1,16 @@
+<h1 class="flexcontainer">
+  New Article
+  <div>
+    <%= link_to articles_path, class: 'btn btn-default btn-xs' do %>
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>&nbsp; back
+    <% end %>
+  </div>
+</h1>
+
+<hr>
+
+<div>
+  <%= form_for @article, url: {action: "create"} do |f| %>
+  <%= render partial: 'form', locals: {f: f} %>
+  <% end %>
+</div>

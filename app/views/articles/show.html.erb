@@ -1,0 +1,23 @@
+<h1 class="flexcontainer">
+  <%= @article.title %>
+  <div>
+    <%= link_to articles_path, class: 'btn btn-default btn-xs' do %>
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>&nbsp; back
+    <% end %>
+    &nbsp;
+    <%= link_to edit_article_path(@article), class: 'nolodash' do %>
+      <span class="glyphicon glyphicon-pencil h1-glyph" aria-hidden="true"></span>
+    <% end %>
+    &nbsp;
+    <%= link_to @article, method: :delete, data: { confirm: 'Are you sure?' }, class: 'nolodash' do %>
+      <span class="glyphicon glyphicon-trash h1-glyph" aria-hidden="true"></span>
+    <% end %>
+  </div>
+</h1>
+
+<hr>
+
+<h3><%= @article.subtitle %></h3>
+<%= image_tag @article.image %>
+<br><br>
+<%= Kramdown::Document.new(@article.content).to_html %>
